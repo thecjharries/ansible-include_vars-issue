@@ -1,0 +1,47 @@
+---
+- debug:
+    var: role2_var
+
+- name: Include and debug role1_var
+  block:
+    - name: Include via role
+      block:
+      - include_role:
+          name: role1
+          vars_from: main.yml
+
+      - debug:
+          msg: A message above this line implies the tasks were executed
+
+    - name: "Include via 'dir: rolename'"
+      block:
+        - include_vars:
+            dir: role1
+
+        - debug:
+            var: role1_var
+      rescue:
+        - debug:
+            msg: Not found
+
+    - name: "Include via 'dir: roles/rolename/vars"
+      block:
+        - include_vars:
+            dir: roles/role1/vars
+
+        - debug:
+            var: role1_var
+      rescue:
+        - debug:
+            msg: Not found
+
+    - name: "Include via '{{ '{{' }} playbook_dir {{ '}}' }}/roles/rolename/vars'"
+      block:
+        - include_vars:
+            dir: "{{ playbook_dir }}/roles/role1/vars"
+
+        - debug:
+            var: role1_var
+      rescue:
+        - debug:
+            msg: Not found
