@@ -17,4 +17,4 @@ install:
   - pip install ansible
 
 script:
-  - ansible-playbook -i inventories/localhost/hosts.yml provisioning/main.yml --syntax-check --connection=local
+  - ansible-playbook -i provisioning/inventories/localhost/hosts.yml provisioning/main.yml --syntax-check --connection=local
