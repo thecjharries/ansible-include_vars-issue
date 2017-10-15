@@ -1,6 +1,6 @@
 [![Build Status](https://travis-ci.org/thecjharries/ansible-include_vars-issue.svg?branch=master)](https://travis-ci.org/thecjharries/ansible-include_vars-issue)
 
-This repo pulls together all of the files necessary to reproduce a bug with [`include_vars`](http://docs.ansible.com/ansible/latest/include_vars_module.html). [`role2`'s tasks](roles/role2/tasks/main.yml) illustrate the issue. From [the docs](http://docs.ansible.com/ansible/latest/include_vars_module.html#options), `dir` is
+This repo pulls together all of the files necessary to reproduce a bug with [`include_vars`](http://docs.ansible.com/ansible/latest/include_vars_module.html). [`role2`'s tasks](provisioning/roles/role2/tasks/main.yml) illustrate the issue. From [the docs](http://docs.ansible.com/ansible/latest/include_vars_module.html#options), `dir` is
 > The directory name from which the variables should be loaded.
 > If the path is relative, it will look for the file in vars/ subdirectory of a role or relative to playbook.
 
